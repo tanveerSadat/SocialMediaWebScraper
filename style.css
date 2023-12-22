@@ -1,0 +1,96 @@
+/* Set the default style for the entire document */
+body {
+    margin: 0;
+    font-family: Helvetica;
+    font-weight: bold;
+    background-color: #b2d0f1;
+}
+
+/* Left-side menu styles */
+.menu {
+    width: 65px; /* Initial width of the menu */
+    background-color: #b2d0f1;
+    height: 100vh; /* Set the height of the menu to cover the entire window */
+
+    /* Hide horizontal overflow content + keep the position fixed */
+    overflow-x: hidden;
+    position: fixed;
+    transition: width 0.5s;
+}
+
+/* Expanded menu width */
+.menu.open {
+    width: 250px;
+    background-color: #718ca1;
+}
+
+/* Styles for links inside the menu */
+.menu a {
+    padding: 18px;
+    text-decoration: none; 
+    font-size: 22px;
+    display: block;
+    opacity: 0; /* Initially hide the menu items */
+    text-align: center;
+}
+
+.menu a:first-child {
+    margin-top: 160px;
+}
+
+/* Show links on hover and highlight them */
+.menu.open a {
+    color: white;
+    opacity: 1; /* Show the menu items when the menu is open */
+}
+
+/* Highlight links on hover */
+.menu a:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Adjust content area margin when the menu is expanded */
+.menu.open + .content {
+    margin-left: 200px;
+}
+
+/* Content styles */
+.content {
+    padding: 20px;
+    margin-left: 30px; /* Adjusted margin for the initial menu width */
+    transition: margin-left 0.5s;
+    color: white;
+}
+
+/* Image container styles */
+#frontGraphic {
+    margin-left: 1250px; /* Adjust the spacing between image and text */
+}
+
+/* Apply styles only to paragraph text */
+.content p {
+    text-align: left;
+    font-size: 56px;
+    margin-top: 40px;
+    margin-left:125px;
+    margin-bottom: 20px;
+    transition: margin 0.5s ease-in-out; /* Add a transition for the margin property */
+}
+
+/* Button styles */
+#toggleMenuButton {
+    position: fixed;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    background-color: #b2d0f1;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* Add a new class for the pressed state */
+#toggleMenuButton.pressed {
+    background-color: #718ca1;
+}
