@@ -3,9 +3,27 @@
 document.getElementById('toggleMenuButton').addEventListener('click', function() {
     
     // Find the first element with the class 'menu' using the querySelector method
-    document.querySelector('.menu').classList.toggle('open');
-    document.body.classList.toggle('menu-closed');
-    this.classList.toggle('pressed'); // Toggle the "pressed" class on the button
+    // This line of code is responsible for expanding and collapsing the menu
+    var menu = document.querySelector('.menu');
+    menu.classList.toggle('open');
+
+    // This can be used to apply styles when the menu button is pressed
+    this.classList.toggle('pressed'); 
+
+    // Find the elements with the classes 'titleText' and 'content'
+    var titleText = document.querySelector('.titleText');
+    var content = document.querySelector('.content');
+
+    // Check if the menu has the 'open' class
+    if (menu.classList.contains('open')) {
+        // If it does, add the 'open' class to titleText and content
+        titleText.classList.add('open');
+        content.classList.add('open');
+    } else {
+        // If it doesn't, remove the 'open' class from titleText and content
+        titleText.classList.remove('open');
+        content.classList.remove('open');
+    }
 });
 
 document.addEventListener('DOMContentLoaded', function() {

@@ -3,13 +3,13 @@ body {
     margin: 0;
     font-family: Helvetica;
     font-weight: bold;
-    background-color: #b2d0f1;
+    background-color: #88b6e7;
 }
 
 /* Left-side menu styles */
 .menu {
     width: 65px; /* Initial width of the menu */
-    background-color: #b2d0f1;
+    background-color: #88b6e7;
     height: 100vh; /* Set the height of the menu to cover the entire window */
 
     /* Hide horizontal overflow content + keep the position fixed */
@@ -21,7 +21,7 @@ body {
 /* Expanded menu width */
 .menu.open {
     width: 250px;
-    background-color: #718ca1;
+    background-color: #00587a;
 }
 
 /* Styles for links inside the menu */
@@ -50,9 +50,19 @@ body {
     color: black;
 }
 
+/* Additional text styles */
+.titleText {
+    font-size: 16px; /* Set the font size for the small text */
+    color: white;
+    position: fixed;
+    top: 215px;
+    left: 180px;
+    transition: margin-left 0.5s; /* Add transition property for smooth animation */
+}
+
 /* Adjust content area margin when the menu is expanded */
-.menu.open + .content {
-    margin-left: 200px;
+.titleText.open {
+    margin-left: 170px; /* Adjusted margin for the open menu */
 }
 
 /* Content styles */
@@ -63,9 +73,16 @@ body {
     color: white;
 }
 
+/* Adjust content area margin when the menu is expanded */
+.content.open {
+    margin-left: 200px; /* Adjusted margin for the open menu */
+}
+
 /* Image container styles */
 #frontGraphic {
+    position: relative;
     margin-left: 1250px; /* Adjust the spacing between image and text */
+    margin-top: -250px;
 }
 
 /* Apply styles only to paragraph text */
@@ -84,7 +101,7 @@ body {
     padding: 10px;
     margin-top: 10px;
     margin-left: 10px;
-    background-color: #b2d0f1;
+    background-color: #88b6e7;
     border: none;
     cursor: pointer;
     z-index: 1;
@@ -92,5 +109,5 @@ body {
 
 /* Add a new class for the pressed state */
 #toggleMenuButton.pressed {
-    background-color: #718ca1;
+    background-color: #00587a;
 }
