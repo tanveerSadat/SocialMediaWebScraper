@@ -8,27 +8,29 @@ body {
   margin: 0;
   font-family: sans-serif;
   font-weight: 100;
+  bottom: 50px;
 }
 .Table-container {
   position: absolute;
-  top: 50%;
+  top: 1600px;
   left: 50%;
   height: 600px;
   overflow-y: scroll;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  border-bottom: 30px;
 }
 
 table {
     text-align: left;
     position: relative;
     border-collapse: collapse; 
+    
 }
 input{
     position: sticky;
-    width: 987px;
+    width: 1436px;
     height: 40px;
-    /* margin-bottom: 10px; */
     border-color: #577399;
     border-style: solid;
     border-width: 5px;
@@ -41,7 +43,7 @@ input{
   background-color: #577399;
 }
 table {
-  width: 1000px;
+  width: 1450px;
   max-height: 1200px;
   border-collapse: collapse;
   border-width: 30px;
