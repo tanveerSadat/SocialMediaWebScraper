@@ -5,10 +5,12 @@ body {
     font-weight: bold;
     background-color: #88b6e7;
     background: radial-gradient(circle at 85%, #c7d1db, #a5c3e4, #85b4e7);
+    overflow-x: hidden;
 }
 
 /* Left-side menu styles */
 .menu {
+    top: 0px;
     width: 65px; /* Initial width of the menu */
     background-color: #88b6e7;
     height: 100vh; /* Set the height of the menu to cover the entire window */
@@ -30,6 +32,7 @@ body {
     padding: 18px;
     text-decoration: none; 
     font-size: 22px;
+    font-weight: bold;
     display: block;
     opacity: 0; /* Initially hide the menu items */
     text-align: center;
@@ -54,6 +57,7 @@ body {
 /* Additional text styles */
 .titleText {
     font-size: 16px; /* Set the font size for the small text */
+    font-weight: bold;
     color: white;
     position: relative;
     top: 260px;
@@ -69,6 +73,7 @@ body {
 /* Content styles */
 .content {
     padding: 20px;
+    font-weight: bold;
     margin-left: 30px; /* Adjusted margin for the initial menu width */
     transition: margin-left 0.5s;
     color: white;
@@ -99,8 +104,6 @@ body {
 /* Button styles */
 #toggleMenuButton {
     position: fixed;
-    padding: 10px;
-    margin-top: 10px;
     margin-left: 10px;
     background-color: #88b6e7;
     border: none;
@@ -130,7 +133,8 @@ img.blink {
     height: 60px;
     animation: blink 1.25s;
     animation-iteration-count: infinite;
-    position: fixed;
+    position: relative;
+    top: 525px;
     bottom: 0;
     left: 47.5%;
 }
