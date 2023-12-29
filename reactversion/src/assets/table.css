@@ -1,0 +1,100 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  bottom: 50px;
+}
+
+.Table-container {
+  position: absolute;
+  left: 50%;
+  top: 95%;
+  height: 600px;
+  overflow-y: scroll;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  /* border: 2px solid #577399; /
+}
+
+.Table-container::-webkit-scrollbar {
+  width: 0.5em; 
+}
+
+.Table-container::-webkit-scrollbar-thumb {
+  background-color: rgba(136, 135, 135, 0.904); 
+}
+
+.Table-container::-webkit-scrollbar-track {
+  background-color: #eee;
+}
+
+.Table-wrapper {
+  border: 2px solid #577399;
+  overflow: hidden;
+}
+
+table {
+  text-align: left;
+  position: relative; 
+  border-collapse: collapse;
+}
+
+input {
+  position: sticky;
+  width: 1440px;
+  height: 40px;
+  border-color: #577399;
+  border-style: solid;
+  border-width: 5px;
+  font-size: 18px;
+  z-index: 100;
+}
+
+.myButton {
+  left: 25px;
+  background-color: #577399;
+}
+
+table {
+  width: 1450px;
+  max-height: 1200px;
+  border-collapse: collapse;
+  border-width: 30px;
+  overflow: auto;
+  border-bottom: 2px solid #577399; / Adding a bottom border */
+}
+
+tr {
+  font-family: Franklin Gothic Light;
+  font-weight: 400;
+  height: 50px;
+}
+
+th,
+td {
+  padding: 16px;
+  font-size: 16px;
+  background-color: rgba(87, 115, 153, 0.3);
+  color: black;
+}
+
+th {
+  font-size: 17px;
+  text-align: left;
+  z-index: 2;
+  background-color: #577399;
+  position: relative;
+  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+}
+
+tbody tr:hover {
+  background-color: rgba(87, 115, 153, 0.3);
+}
+
+tbody td {
+  position: static;
+  height: 40px;
+}
