@@ -8,41 +8,45 @@ body {
   bottom: 50px;
 }
 
-.Table-container {
+.Table-container {  
   position: absolute;
-  left: 50%;
-  top: 95%;
+  left: 55%;
+  top: 55%;
   height: 600px;
   overflow-y: scroll;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  /* border: 2px solid #577399; /
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 22px;
 }
 
 .Table-container::-webkit-scrollbar {
   width: 0.5em; 
+  border-radius: 10px; /* Make the track round */ 
 }
 
 .Table-container::-webkit-scrollbar-thumb {
-  background-color: rgba(136, 135, 135, 0.904); 
+  background-color: #577399;
+  border-radius: 10px;  
 }
 
 .Table-container::-webkit-scrollbar-track {
-  background-color: #eee;
+  border-radius: 10px;  
+  background-color: rgba(250, 250, 250, 0.70);
 }
 
-.Table-wrapper {
+.Table-wrapper {  
   border: 2px solid #577399;
   overflow: hidden;
 }
 
-table {
+table { 
   text-align: left;
   position: relative; 
   border-collapse: collapse;
 }
 
-input {
+input {  
   position: sticky;
   width: 1440px;
   height: 40px;
@@ -51,6 +55,9 @@ input {
   border-width: 5px;
   font-size: 18px;
   z-index: 100;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px; 
+  outline: none;
 }
 
 .myButton {
@@ -64,7 +71,6 @@ table {
   border-collapse: collapse;
   border-width: 30px;
   overflow: auto;
-  border-bottom: 2px solid #577399; / Adding a bottom border */
 }
 
 tr {

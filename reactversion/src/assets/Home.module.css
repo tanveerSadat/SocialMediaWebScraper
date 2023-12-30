@@ -1,23 +1,24 @@
 /* Left-side menu styles */
 .menu {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
     top: 0px;
     width: 65px; /* Initial width of the menu */
-    background-color: #88b6e7;
     height: 100vh; /* Set the height of the menu to cover the entire window */
     
-
     /* Hide horizontal overflow content + keep the position fixed */
     overflow-x: hidden;
     position: fixed;
-    transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out, visibility 0.5s;
 }
 
 /* Expanded menu width */
 .menu.open {
-    display: block;
+    visibility: visible;
+    opacity: 1;
     width: 250px;
     background-color: #00587a;
+    transition: width 0.5s ease-in-out, visibility 0.5s;
 }
 
 /* Styles for links inside the menu */
@@ -67,6 +68,7 @@
 
 /* Content styles */
 .content {
+    margin-top: 11%;
     padding: 20px;
     font-family: Franklin Gothic Light;
     font-weight: bold;
@@ -101,35 +103,27 @@
     }
 }
 
-img.blink {
-    width: 60px;
-    height: 60px;
-    animation: blink 1.25s;
-    animation-iteration-count: infinite;
-    position: relative;
-    top: 525px;
-    bottom: 0;
-    left: 47.5%;
-}
-
-.toggleMenu{
+.toggleMenu {
     position: fixed;
     margin-left: 10px;
+    margin-top: 10px;
     background-color: #88b6e7;
     border: none;
-    cursor: pointer;
     z-index: 2;
 }
+
 .pressed {
     position: fixed;
+    margin-left: 10px;
+    margin-top: 10px;
     background-color: #00587a;
-    outline: none;
+    outline: none; 
     box-shadow: none;
     z-index: 2;
 }
 
 .frontGraphic {
     position: relative;
-    margin-left: 1250px; 
-    margin-top: -300px;
+    margin-left: -100px; 
+    margin-top: 0px;
 }

@@ -47,11 +47,16 @@ const Content = ({isOpen}) => {
   }, [words]);
 
   return (
-    <div className={`${styles.content} ${isOpen ? styles.open : ''}`}>
-      <p id="fadeInParagraph" />
-      <div id="frontGraphic">
-        <img src="../assets/9612167.png" style={{width: '550px', height: 'auto'}}/>  
+    <div>
+      <div className={`${styles.titleText} ${isOpen ? styles.open : ''}`}> 
+        <p >A place that promotes:</p>
       </div>
+      <div className={`${styles.content} ${isOpen ? styles.open : ''}`}>
+      <p id="fadeInParagraph" />
+      <div id="frontGraphic" className={styles.frontGraphic}>
+        <img src="test.png" className={styles.frontGraphic} />  
+      </div>
+    </div>
     </div>
   );
 };
@@ -67,8 +72,8 @@ const Home = () => {
 
   return (
     <>
-      <button id="toggleMenuButton" className={isOpen ? styles.pressed : styles.toggleMenu } onClick={() => setIsOpen(!isOpen)}>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/2048px-Hamburger_icon.svg.png" width="46" height="45" />
+      <button id="toggleMenuButton" className={isOpen ? styles.pressed : styles.toggleMenu } onClick={() => setIsOpen(!isOpen)} style={{top: '0px', border: 'none', outline: 'none' }}>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/2048px-Hamburger_icon.svg.png" width="46" height="45"/>
       </button>
 
       <Menu isOpen={isOpen} />
