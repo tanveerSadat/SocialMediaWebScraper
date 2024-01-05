@@ -45,11 +45,7 @@ const Content = ({isOpen}) => {
       });
     }, 500); // Adjust the delay as needed
   }, [words]);
-<<<<<<< HEAD
   
-=======
-
->>>>>>> 044e6f35e6b0729e62d5a07babee74ac0ea1430a
   return (
     <div>
       <div className={`${styles.titleText} ${isOpen ? styles.open : ''}`}> 
