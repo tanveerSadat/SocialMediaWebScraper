@@ -10,10 +10,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 # consumer key + secret and Access token + secret in order to use twitter API
-consumer_key = "1GLgxcynNAsb7BmdkFRYmSJS0"
-consumer_secret = "UM2tUv6QPrFVxL35dSnKw7Y7se6VeC88KJMzWhnlKuVoPCRprK"
-access_token = "1204954626912661504-lQ9U1EXNzMTR00gkmGqI4ndEwQU86q"
-access_token_secret = "r9LVr0Hd7btNLL8VEDDiPrEf2jzgDoszmy26Y8kvzUtMT"
+consumer_key = " "
+consumer_secret = " "
+access_token = " "
+access_token_secret = " "
 
 # using tweepy imported library for python and twitter API connection
 auth = tweepy.OAuth1UserHandler(consumer_key, consumer_secret, access_token, access_token_secret)
