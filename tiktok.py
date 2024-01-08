@@ -1,24 +1,24 @@
 from googlesearch import search
 import time
 
-def search_tiktok_with_filters(job_title, location, num_results=10):
+def search_tiktok(job_title):
     # Set up the WebDriver (make sure you have chromedriver or geckodriver installed and in your PATH)
-    query = f'site:tiktok.com "{job_title}" "{location}"'
+    query = f'site:tiktok.com "{job_title}"'
     print(query)
 
-
-    # Extract LinkedIn links from the search results
-    tiktok_links = []
-    for result in search(query,tld="com",num=20,stop=20,pause=2):
+    # Extract TikTok embed links from the search results
+    tiktok_links = ""
+    for result in search(query, tld="com", num=20, stop=20, pause=2):
         if "https://www.tiktok.com/@" in result:
-            tiktok_links.append(result)
+            # Modify the TikTok link to the embed format
+            username = result.split("/")[-1]
+            embed_link = f'https://www.tiktok.com/embed/{username}'
+            tiktok_links += (embed_link) + " "
     return tiktok_links
 
-search_job_title = "Software Developer"  # Replace with your specific job title
-search_location = "New York"  # Replace with your specific location
-tiktok_results = search_tiktok_with_filters(search_job_title, search_location)
+input = "Software Tester"
 
 # Display the results
 print("Dispaying the Results")
-for i, link in enumerate(tiktok_results, start=1):
-    print(f"{i}. {link}")
+result_links = search_tiktok(input)
+print(result_links)

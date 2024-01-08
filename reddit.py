@@ -6,7 +6,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 def scrape_reddit(query):
 
     options = Options()
-    #options.add_argument("--headless")
+    options.add_argument("--headless")
     options.add_argument("--disable-gpu")
     options.add_experimental_option("detach", True)
 
@@ -21,12 +21,15 @@ def scrape_reddit(query):
 
     # Filter links to only include individual Reddit posts
     reddit_post_links = [link.get_attribute("href") for link in links if "/r/" in link.get_attribute("href") and "/comments/" in link.get_attribute("href")]
+    reddit_links = ""
 
     for href in reddit_post_links:
-        print(href)
+        reddit_links += href + " "
 
     driver.quit()
+    return reddit_links
 
 # Get user input for the search query
-user_query = input("Enter your search query for Reddit: ")
-scrape_reddit(user_query.lower())
+input = "Software Tester"
+result_links = scrape_reddit(input)
+print(result_links)
