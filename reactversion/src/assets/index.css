@@ -1,0 +1,19 @@
+/* Set the default style for the entire document */
+body {
+    margin: 0;
+    font-family: Franklin Gothic Light;
+    font-weight: bold;
+    background-color: #88b6e7;
+    background: radial-gradient(circle at 85%, #c7d1db, #a5c3e4, #85b4e7);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Image container styles */
+#frontGraphic {
+    position: relative;
+    margin-left: 1250px; 
+    margin-top: -300px;
+}
+
