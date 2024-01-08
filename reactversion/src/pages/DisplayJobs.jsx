@@ -18,15 +18,31 @@ const JobInfo = ({ jobTitle, links }) => (
   <div>
     <h1>Posts about {jobTitle}</h1>
     {links && links.length > 0 ? (
-      <ul>
+      <div>
         {links.map((link, index) => (
-          <li key={index}>
-            <a href={link} target="_blank" rel="noopener noreferrer">
-              {link}
-            </a>
-          </li>
+          <div key={index}>
+            {/* Check if the link is a YouTube link or a TikTok link and render the appropriate iframe */}
+            {link.includes('youtube.com') ? (
+              <iframe
+                src={link}
+                style={{ width: '100%', height: '400px', border: 'none', maxWidth: '605px', minWidth: '50px' }}
+                title={`YouTube Video ${index + 1}`}
+              ></iframe>
+            ) : link.includes('tiktok.com') ? (
+              <iframe
+                src={link}
+                style={{ width: '100%', height: '400px', border: 'none', maxWidth: '605px', minWidth: '50px' }}
+                title={`TikTok Video ${index + 1}`}
+              ></iframe>
+            ) : (
+              // If the link is neither YouTube nor TikTok, render it as a regular link
+              <a href={link} target="_blank" rel="noopener noreferrer">
+                {link}
+              </a>
+            )}
+          </div>
         ))}
-      </ul>
+      </div>
     ) : (
       <p>No posts found for {jobTitle}.</p>
     )}
@@ -54,19 +70,24 @@ function DisplayJobs() {
       <div className={`${styles.DisplayJobsContent}`}>
         <JobInfo jobTitle={jobTitle} links={links} />
 
-        {/* Add TikTok video embed code here */}
+        {/* Add TikTok video here */}
         <iframe
           src="https://www.tiktok.com/embed/v2/7320357603266153761"
           style={{ width: '100%', height: '400px', border: 'none', maxWidth: '605px', minWidth: '50px' }}
           title="TikTok Video"
         ></iframe>
-        {/* Add Youtube video embed code here */}
+        {/* Add Youtube video here */}
         <iframe
           src="https://www.youtube.com/embed/scACUi8waGQ?si=cAa8h0oOfbj3tEQv"
           style={{ width: '100%', height: '400px', border: 'none', maxWidth: '605px', minWidth: '50px' }}
           title="Youtube Video"
         ></iframe>
-
+        {/* Add LinkedIn post here */}
+        <iframe
+          src="https://www.linkedin.com/embed/feed/update/urn:li:share:7128051935487692802"
+          style={{ width: '100%', height: '400px', border: 'none', maxWidth: '605px', minWidth: '50px' }}
+          title="LinkedIn Post"
+        ></iframe>
       </div>
     </>
   );

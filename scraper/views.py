@@ -66,23 +66,24 @@ def scraped_links(request):
             links = driver.find_elements("xpath", "//a[@href and contains(@href, '/watch?v=') and not(contains(@href, 'googleads'))]")
 
             for link in links:
-            # get the link and then use regular expression to 'match' the base link (removing time stamps and duplicate links)
+                # get the link and then use regular expression to 'match' the base link (removing time stamps and duplicate links)
                 href = link.get_attribute("href")
-                match_link = re.match(r'https://www\.youtube\.com/watch\?v=[^&]+', href)
+                match_link = re.match(r'https://www\.youtube\.com/watch\?v=([a-zA-Z0-9_-]+)', href)
 
                 if match_link:
-                    base_href = match_link.group()
+                    video_id = match_link.group(1)
+                    embed_link = f'https://www.youtube.com/embed/{video_id}'
 
-                    if base_href not in unique_links:
-                        unique_links.add(base_href)
-                        print(base_href)
-                        youtube_links = youtube_links + base_href + " "
+                    if embed_link not in unique_links:
+                        unique_links.add(embed_link)
+                        print(embed_link)
+                        youtube_links += embed_link + " "
                 else:
-                # if re.match returns None, add the link directly to unique_links
+                    # if re.match returns None, add the link directly to unique_links
                     if href not in unique_links:
                         unique_links.add(href)
                         print(href)
-                        youtube_links = youtube_links + href + " "
+                        youtube_links += href + " "
 
 
         # Save the scraped data to the database

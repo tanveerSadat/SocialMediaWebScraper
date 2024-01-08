@@ -4,10 +4,26 @@ import dataFromFile from "./job_descriptions.json";
 import Button from '@mui/material/Button';
 import './table.css'
 import { useNavigate } from "react-router-dom"; // Import useNavigate from React Router
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
+// Define the LoadingComponent
+const LoadingComponent = () => {
+  return (
+    <Box
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      height="100vh"
+    >
+      <CircularProgress />
+    </Box>
+  );
+};
 
 function Table(){
     const navigate = useNavigate(); // Create a navigate function
+    const [isLoading, setIsLoading] = React.useState(false);
 
     const data = React.useMemo(() => dataFromFile, []); //Setup data if getting from api do it here
     //columns
@@ -51,10 +67,10 @@ function Table(){
         setFilterInput(value);
     };
   
-  // ... (previous code)
-
     const handleButtonClick = async (jobTitle, links) => {
       try {
+        setIsLoading(true);
+
         // Send a POST request to your backend with jobTitle
         const response = await fetch('http://127.0.0.1:8000/scraped/', {
           method: 'POST',
@@ -76,6 +92,8 @@ function Table(){
         navigate("/display-jobs", { state: { links: receivedLinks, jobTitle: jobTitle } });
       } catch (error) {
         console.error(error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -88,6 +106,9 @@ function Table(){
           placeholder={"Filter Results"}
         />
         <div className="Table-wrapper">
+        {isLoading ? (
+            <LoadingComponent /> // Render LoadingComponent when isLoading is true
+          ) : (
           <table {...getTableProps()}>
             <thead>
               {/* Loop through header groups and render each group as a table row */}
@@ -131,6 +152,7 @@ function Table(){
               })}
             </tbody>
           </table>
+          )}
         </div>
       </div>
     </div>
