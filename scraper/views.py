@@ -14,7 +14,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from rest_framework.permissions import AllowAny
 from rest_framework.renderers import JSONRenderer
-import re
+from scraper.scraping.youtube import scrape_youtube
+from scraper.scraping.tiktok import scrape_tiktok
+#from scraper.scraping.linkedin import scrape_linkedin
 
 @api_view(['GET', 'POST'])
 @permission_classes([AllowAny])  # Allow any origin to access this view
@@ -32,67 +34,17 @@ def scraped_links(request):
         if not job_to_scrape:
             return Response({'error': 'job title not provided in the request'}, status=status.HTTP_400_BAD_REQUEST)
 
-        options = Options()
-        options.add_argument("--headless")
-        options.add_argument("--disable-gpu")
-        options.add_experimental_option("detach", True)
+        combined_links = ""
 
-        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-
-        driver.get("https://www.google.com/")
-
-        # search input xpath for youtube
-        # search_input = driver.find_element("xpath", "//input[@id='search']")
-
-        # search input xpath for google
-        search_input = driver.find_element("xpath", "//*[@id='APjFqb']")
-
-        # various search filters
-        input = job_to_scrape
-        input_addOns = [" ", "#DayInTheLife", " #OfficeLife", " #BehindTheDesk", " #OnTheJob", " #MyWorkDay"]
-
-        # use a set to store unique links to avoid duplicates
-        unique_links = set()
-        youtube_links = ""
-
-        for a in range(1):
-            search_input.clear()  # Delete the current stuff in search input field
-            search_input.send_keys('site:youtube.com/ "' + input + '" "' + input_addOns[1] + '"')
-            
-            # Wait until the input field has a non-empty value
-            WebDriverWait(driver, 10).until(EC.text_to_be_present_in_element(("xpath", "//*[@id='APjFqb']"), ''))
-            search_input.send_keys(Keys.RETURN)
-
-            links = driver.find_elements("xpath", "//a[@href and contains(@href, '/watch?v=') and not(contains(@href, 'googleads'))]")
-
-            for link in links:
-                # get the link and then use regular expression to 'match' the base link (removing time stamps and duplicate links)
-                href = link.get_attribute("href")
-                match_link = re.match(r'https://www\.youtube\.com/watch\?v=([a-zA-Z0-9_-]+)', href)
-
-                if match_link:
-                    video_id = match_link.group(1)
-                    embed_link = f'https://www.youtube.com/embed/{video_id}'
-
-                    if embed_link not in unique_links:
-                        unique_links.add(embed_link)
-                        print(embed_link)
-                        youtube_links += embed_link + " "
-                else:
-                    # if re.match returns None, add the link directly to unique_links
-                    if href not in unique_links:
-                        unique_links.add(href)
-                        print(href)
-                        youtube_links += href + " "
-
+        combined_links = combined_links + scrape_youtube(job_to_scrape) + " "
+        combined_links = combined_links + scrape_tiktok(job_to_scrape) + " "
+        # combined_links = combined_links + scrape_linkedin(job_to_scrape) + " "
 
         # Save the scraped data to the database
-        scrape_instance = scrape.objects.create(links=youtube_links)
+        scrape_instance = scrape.objects.create(links=combined_links)
 
         # Serialize and return the saved data
         serializer = ScrapeSerializer(scrape_instance)
-
-        driver.quit()  # Close the browser
         
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 

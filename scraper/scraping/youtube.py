@@ -26,7 +26,7 @@ def scrape_youtube(input):
     search_input = driver.find_element("xpath", "//*[@id='APjFqb']")
 
     # various search filters
-    input_addOns = [" ", "#DayInTheLife", " #OfficeLife", " #BehindTheDesk", " #OnTheJob", " #MyWorkDay"]
+    input_addOns = ["#DayInTheLife", " #OfficeLife", " #BehindTheDesk", " #OnTheJob", " #MyWorkDay"]
 
     # use a set to store unique links to avoid duplicates
     unique_links = set()
@@ -34,7 +34,7 @@ def scrape_youtube(input):
 
     for a in range(1):
         search_input.clear()  # Delete the current stuff in search input field
-        search_input.send_keys('site:youtube.com/ "' + input + '" "' + input_addOns[1] + '"')
+        search_input.send_keys('site:youtube.com/ "' + input + '" "' + input_addOns[0] + '"')
         
         # Wait until the input field has a non-empty value
         WebDriverWait(driver, 10).until(EC.text_to_be_present_in_element(("xpath", "//*[@id='APjFqb']"), ''))
@@ -64,7 +64,3 @@ def scrape_youtube(input):
 
     driver.quit()
     return youtube_links
-
-input = "Farmer"
-result_links = scrape_youtube(input)
-print(result_links)
