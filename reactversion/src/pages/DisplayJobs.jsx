@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from '../assets/Home.module.css';
+import RedditEmbed from "../assets/redditEmbed";
 import '../assets/index.css';
 import { useLocation } from "react-router-dom";
 
@@ -78,20 +79,8 @@ function DisplayJobs() {
       {/* Display job information using the JobInfo component */}
       <div className={`${styles.DisplayJobsContent}`}>
         <JobInfo jobTitle={jobTitle} links={links} />
-        {/* Add LinkedIn post here */}
-        <iframe
-          src="https://www.linkedin.com/embed/feed/update/urn:li:share:7128051935487692802"
-          style={{ width: '100%', height: '400px', border: 'none', maxWidth: '605px', minWidth: '50px' }}
-          title="LinkedIn Post"
-        ></iframe>
-        {/* Add Reddit post here */}
-        <blockquote className="reddit-embed-bq" cite="https://www.reddit.com/r/computerscience/comments/kxinnm/red_black_tree_visualization/" style={{ height: '500px' }} data-embed-height="240">
-          <a href="https://www.reddit.com/r/computerscience/comments/kxinnm/red_black_tree_visualization/">Red Black Tree Visualization</a><br/>
-          by <a href="https://www.reddit.com/user/LegitGandalf/">u/LegitGandalf</a>
-          in <a href="https://www.reddit.com/r/computerscience/">computerscience</a>
-        </blockquote>
-        <script async src="https://embed.reddit.com/widgets.js" charSet="UTF-8"></script>
-        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">At dawn from the gateway to Mars, the launch of Starship’s second flight test <a href="https://t.co/ffKnsVKwG4">pic.twitter.com/ffKnsVKwG4</a></p>&mdash; SpaceX (@SpaceX) <a href="https://twitter.com/SpaceX/status/1732824684683784516?ref_src=twsrc%5Etfw">December 7, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+        <RedditEmbed post={{ permalink: '/r/computerscience/comments/kxinnm/red_black_tree_visualization/' }} />
       </div>
     </>
   );
