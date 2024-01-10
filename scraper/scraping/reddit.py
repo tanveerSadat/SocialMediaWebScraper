@@ -21,15 +21,18 @@ def scrape_reddit(query):
 
     # Filter links to only include individual Reddit posts
     reddit_post_links = [link.get_attribute("href") for link in links if "/r/" in link.get_attribute("href") and "/comments/" in link.get_attribute("href")]
+    unique_links = set()
     reddit_links = ""
 
     for href in reddit_post_links:
-        reddit_links += href + " "
+        if href not in unique_links:
+            unique_links.add(href)
+            reddit_links += href + " "
 
     driver.quit()
     return reddit_links
 
 # Get user input for the search query
-input = "Software Tester"
-result_links = scrape_reddit(input)
-print(result_links)
+# input = "Software Tester"
+# result_links = scrape_reddit(input)
+# print(result_links)

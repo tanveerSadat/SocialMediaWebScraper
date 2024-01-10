@@ -42,9 +42,9 @@ const JobInfo = ({ jobTitle, links }) => (
                 title={`Linkedin Profile ${index + 1}`}
               ></iframe>
               ) : link.includes('reddit.com') ? (
-                // If the link is a Reddit post, render the Reddit embed code
-                <div dangerouslySetInnerHTML={{ __html: link }} />
-            ) : (
+                // If the link is a Reddit post, render the RedditEmbed component
+                <RedditEmbed post={{ permalink: link }} />
+              ) : (
               // If the link isn't a social media, render it as a regular link
               <a href={link} target="_blank" rel="noopener noreferrer">
                 {link}
@@ -80,7 +80,7 @@ function DisplayJobs() {
       <div className={`${styles.DisplayJobsContent}`}>
         <JobInfo jobTitle={jobTitle} links={links} />
 
-        <RedditEmbed post={{ permalink: '/r/computerscience/comments/kxinnm/red_black_tree_visualization/' }} />
+        {/* <RedditEmbed post={{ permalink: '/r/VirtualAssistant/comments/18p8uhn/for_hire_digital_marketing_specialist/' }} /> */}
       </div>
     </>
   );

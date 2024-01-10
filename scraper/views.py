@@ -17,6 +17,7 @@ from rest_framework.renderers import JSONRenderer
 from scraper.scraping.youtube import scrape_youtube
 from scraper.scraping.tiktok import scrape_tiktok
 #from scraper.scraping.linkedin import scrape_linkedin
+from scraper.scraping.reddit import scrape_reddit
 
 @api_view(['GET', 'POST'])
 @permission_classes([AllowAny])  # Allow any origin to access this view
@@ -39,6 +40,7 @@ def scraped_links(request):
         combined_links = combined_links + scrape_youtube(job_to_scrape) + " "
         combined_links = combined_links + scrape_tiktok(job_to_scrape) + " "
         # combined_links = combined_links + scrape_linkedin(job_to_scrape) + " "
+        combined_links = combined_links + scrape_reddit(job_to_scrape) + " "
 
         # Save the scraped data to the database
         scrape_instance = scrape.objects.create(links=combined_links)
