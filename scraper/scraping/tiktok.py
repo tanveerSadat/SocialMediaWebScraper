@@ -6,21 +6,14 @@ def scrape_tiktok(job_title):
     print(query)
 
     # Extract TikTok embed links from the search results
-    tiktok_links = ""
-    unique_links = set()
-
-    for result in search(query, tld="com", num=10, stop=10, pause=5):
+    tiktok_links = []
+    for result in search(query, tld="com", stop=None, pause=2):
         if "https://www.tiktok.com/@" in result:
-            if result not in unique_links:
-                unique_links.add(result)
-                # Modify the TikTok link to the embed format
-                username = result.split("/")[-1]
-                embed_link = f'https://www.tiktok.com/embed/{username}'
-                tiktok_links += (embed_link) + " "
+            # Modify the TikTok link to the embed format
+            username = result.split("/")[-1]
+            embed_link = f'https://www.tiktok.com/embed/{username}'
+            tiktok_links.append(embed_link)
+        if len(tiktok_links) >= 10: #change 10 for num of posts wanted
+            break
 
-    return tiktok_links
-
-# # Example usage:
-# input_query = 'Web Developer'
-# tiktok_links = scrape_tiktok(input_query)
-# print(tiktok_links)
+    return " ".join(tiktok_links)

@@ -16,12 +16,12 @@ const Menu = ({ isOpen }) => (
 
 // JobInfo component
 const JobInfo = ({ jobTitle, links }) => (
-  <div>
-    <h1>Posts about {jobTitle}</h1>
+  <div className={styles.DisplayJobsContent}>
+    <h1 className={styles.CenteredHeading}>Posts about {jobTitle}</h1>
     {links && links.length > 0 ? (
-      <div>
+      <div className={styles.DisplayJobsContent}>
         {links.map((link, index) => (
-          <div key={index}>
+          <div key={index} className={styles.JobInfo}>
             {/* Check if the link is a YouTube link or a TikTok link and render the appropriate iframe */}
             {link.includes('youtube.com') ? (
               <iframe
