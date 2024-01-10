@@ -1,15 +1,13 @@
-
 import styles from '../assets/Home.module.css';
 import '../assets/index.css'
 import React, {useState, useEffect} from 'react';
-
 
 const Menu = ({isOpen}) => (
 
   <div className={`${styles.menu} ${isOpen ? styles.open : ''}`}>
     <a href="home" id="home">Home</a>
     <a href="job-news" id="jobnews">Job News</a>
-    <a href="#quizzes" id="quizzes">Quizzes</a>
+    <a href="quizzes" id="quizzes">Quizzes</a>
     <a href="#about" id="about">About</a>
   </div>
 );
@@ -49,12 +47,12 @@ const Content = ({isOpen}) => {
   return (
     <div>
       <div className={`${styles.titleText} ${isOpen ? styles.open : ''}`}> 
-        <p >A place that promotes:</p>
+        <p>A place that promotes:</p>
       </div>
       <div className={`${styles.content} ${isOpen ? styles.open : ''}`}>
       <p id="fadeInParagraph" />
       <div id="frontGraphic" className={styles.frontGraphic}>
-        <img src="test.png" className={styles.frontGraphic} />  
+        <img src="webscrape.gif" className={styles.frontGraphic} />  
       </div>
     </div>
     </div>
@@ -62,24 +60,23 @@ const Content = ({isOpen}) => {
 };
 
 const Home = () => {
-  const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+    useEffect(() => {
+      const toggleMenuButton = document.getElementById('toggleMenuButton');
+      toggleMenuButton.addEventListener('click', function() {
+      });
+    }, []);
 
-  useEffect(() => {
-    const toggleMenuButton = document.getElementById('toggleMenuButton');
-    toggleMenuButton.addEventListener('click', function() {
-    });
-  }, []);
+    return (
+      <>
+        <button id="toggleMenuButton" className={isOpen ? styles.pressed : styles.toggleMenu } onClick={() => setIsOpen(!isOpen)} style={{top: '0px', border: 'none', outline: 'none' }}>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/2048px-Hamburger_icon.svg.png" width="46" height="45"/>
+        </button>
 
-  return (
-    <>
-      <button id="toggleMenuButton" className={isOpen ? styles.pressed : styles.toggleMenu } onClick={() => setIsOpen(!isOpen)} style={{top: '0px', border: 'none', outline: 'none' }}>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/2048px-Hamburger_icon.svg.png" width="46" height="45"/>
-      </button>
-
-      <Menu isOpen={isOpen} />
-      <Content isOpen={isOpen} />
-    </>
-  );
-};
+        <Menu isOpen={isOpen} />
+        <Content isOpen={isOpen} />
+      </>
+    );
+  };
 
 export default Home;

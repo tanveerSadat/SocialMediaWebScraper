@@ -32,7 +32,7 @@ function Table(){
         Header: "",
         accessor: "links",
         Cell: () => (
-          <Button variant="contained" className="myButton" style={{ backgroundColor: "#577399" }} > News </Button>
+          <Button variant="contained" className="myButton" style={{ backgroundColor: "#577399" }} > Job News </Button>
         ),
       },
     ],
@@ -116,10 +116,10 @@ function Table(){
                          <Button
                            variant="contained"
                            className="myButton"
-                           style={{ backgroundColor: "#577399" }}
+                           style={{backgroundColor: "#6a809e", fontWeight: "bold"}}
                            onClick={() => handleButtonClick(row.original.job_title, row.original.links)}
                          >
-                           News
+                           Job News
                          </Button>
                        ) : (
                          cell.render("Cell")

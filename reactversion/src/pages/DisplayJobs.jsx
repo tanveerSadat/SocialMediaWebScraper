@@ -8,7 +8,7 @@ const Menu = ({ isOpen }) => (
   <div className={`${styles.menu} ${isOpen ? styles.open : ''}`}>
     <a href="home" id="home">Home</a>
     <a href="job-news" id="jobnews">Job News</a>
-    <a href="#quizzes" id="quizzes">Quizzes</a>
+    <a href="quizzes" id="quizzes">Quizzes</a>
     <a href="#about" id="about">About</a>
   </div>
 );
