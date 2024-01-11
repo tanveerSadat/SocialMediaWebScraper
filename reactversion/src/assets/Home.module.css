@@ -107,7 +107,7 @@
     position: fixed;
     margin-left: 10px;
     margin-top: 10px;
-    background-color: #88b6e7;
+    background-color: transparent;
     border: none;
     z-index: 2;
 }
@@ -116,7 +116,7 @@
     position: fixed;
     margin-left: 10px;
     margin-top: 10px;
-    background-color: #00587a;
+    background-color: transparent;
     outline: none; 
     box-shadow: none;
     z-index: 2;
@@ -129,9 +129,10 @@
 }
 
 .DisplayJobsContent {
+    margin-left: 1.5%;
     display: flex;
     flex-wrap: wrap;
-    gap: 16px; 
+    gap: 10px; 
     justify-content: center;
     align-items: center;
     height: 100vh; /* Set the container height to the full viewport height */

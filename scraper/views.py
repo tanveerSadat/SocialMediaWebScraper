@@ -9,7 +9,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.renderers import JSONRenderer
 from scraper.scraping.youtube import scrape_youtube
 from scraper.scraping.tiktok import scrape_tiktok
-#from scraper.scraping.linkedin import scrape_linkedin
+from scraper.scraping.linkedin import scrape_linkedin
 from scraper.scraping.reddit import scrape_reddit
 
 @api_view(['GET', 'POST', 'DELETE'])
@@ -32,7 +32,7 @@ def scraped_links(request):
 
         combined_links = combined_links + scrape_youtube(job_to_scrape) + " "
         combined_links = combined_links + scrape_tiktok(job_to_scrape) + " "
-        # combined_links = combined_links + scrape_linkedin(job_to_scrape) + " "
+        combined_links = combined_links + scrape_linkedin(job_to_scrape) + " "
         combined_links = combined_links + scrape_reddit(job_to_scrape) + " "
 
         # Save the scraped data to the database
@@ -44,7 +44,10 @@ def scraped_links(request):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     
     elif request.method == 'DELETE':
+        links = scrape.objects.all()
         links.delete()
+
+        return Response({'message': 'All links deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
 
     return Response({'error': 'Invalid request method'}, status=status.HTTP_400_BAD_REQUEST)
 

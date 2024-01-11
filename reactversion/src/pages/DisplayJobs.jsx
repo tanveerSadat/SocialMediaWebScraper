@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from '../assets/Home.module.css';
 import RedditEmbed from "../assets/redditEmbed";
+import LinkedInBadge from "../assets/LinkedinEmbed";
 import '../assets/index.css';
 import { useLocation } from "react-router-dom";
 
@@ -36,15 +37,13 @@ const JobInfo = ({ jobTitle, links }) => (
                 title={`TikTok Video ${index + 1}`}
               ></iframe>
             ) : link.includes('linkedin.com') ? (
-              <iframe
-                src={link}
-                style={{ width: '100%', height: '400px', border: 'none', maxWidth: '605px', minWidth: '50px' }}
-                title={`Linkedin Profile ${index + 1}`}
-              ></iframe>
+                // If the link is a LinkedIn Profile, render the LinkedInBadge component
+                <LinkedInBadge profile={{ permalink: link }} />
               ) : link.includes('reddit.com') ? (
                 // If the link is a Reddit post, render the RedditEmbed component
                 <RedditEmbed post={{ permalink: link }} />
               ) : (
+                
               // If the link isn't a social media, render it as a regular link
               <a href={link} target="_blank" rel="noopener noreferrer">
                 {link}
@@ -66,6 +65,34 @@ function DisplayJobs() {
   const { links, jobTitle } = state;
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    // Function to delete links after displaying everything
+    const deleteLinks = async () => {
+      try {
+        // Make a request to the backend to delete the links
+        const response = await fetch('http://127.0.0.1:8000/scraped/', {
+          method: 'DELETE',
+        });
+
+        if (response.ok) {
+          console.log('Links deleted successfully');
+        } else {
+          console.error('Failed to delete links');
+        }
+      } catch (error) {
+        console.error('Network error', error);
+      }
+    };
+
+    // Call the deleteLinks function after rendering the posts
+    deleteLinks();
+  }, []); // Empty dependency array ensures that this effect runs only once after the initial render
+
+  // Return null if links are being deleted to avoid rendering the component with incomplete data
+  if (links === undefined) {
+    return null;
+  }
+
   return (
     <>
       {/* Add the button to toggle the menu */}
@@ -79,7 +106,6 @@ function DisplayJobs() {
       {/* Display job information using the JobInfo component */}
       <div className={`${styles.DisplayJobsContent}`}>
         <JobInfo jobTitle={jobTitle} links={links} />
-
         {/* <RedditEmbed post={{ permalink: '/r/VirtualAssistant/comments/18p8uhn/for_hire_digital_marketing_specialist/' }} /> */}
       </div>
     </>

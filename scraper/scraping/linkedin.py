@@ -8,14 +8,14 @@ def scrape_linkedin(job_title):
     # Extract LinkedIn embed links from the search results
     linkedin_links = ""
 
-    for result in search(query, tld="com", num=2, stop=2, pause=5):
+    for result in search(query, tld="com", num=10, stop=10, pause=5):
         # Convert regular LinkedIn profile URLs to embed URLs
         embed_url = result.replace('/in/', '/embed/in/')
         linkedin_links += embed_url + " "
 
     return linkedin_links
 
-# Example usage:
-job_title = "software engineer"
-linkedin_embed_links = scrape_linkedin(job_title)
-print(linkedin_embed_links)
+# # Example usage:
+# job_title = "software engineer"
+# linkedin_embed_links = scrape_linkedin(job_title)
+# print(linkedin_embed_links)

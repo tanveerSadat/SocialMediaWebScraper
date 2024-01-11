@@ -23,11 +23,15 @@ def scrape_reddit(query):
     reddit_post_links = [link.get_attribute("href") for link in links if "/r/" in link.get_attribute("href") and "/comments/" in link.get_attribute("href")]
     unique_links = set()
     reddit_links = ""
+    counter = 0
 
     for href in reddit_post_links:
         if href not in unique_links:
+            counter += 1
             unique_links.add(href)
             reddit_links += href + " "
+            if (counter >= 10):
+                break
 
     driver.quit()
     return reddit_links
