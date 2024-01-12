@@ -18,16 +18,19 @@ const Menu = ({ isOpen }) => (
 // JobInfo component
 const JobInfo = ({ jobTitle, links }) => (
   <div className={styles.DisplayJobsContent}>
-    <h1 className={styles.CenteredHeading}>Posts about {jobTitle}</h1>
+    {/* <h1 className={styles.CenteredHeading}>Posts about {jobTitle}</h1> */}
     {links && links.length > 0 ? (
       links.map((link, index) => {
         let columnStyle;
-        if (index % 3 === 0) {
-          columnStyle = styles.DisplayJobsContentLeft;
-        } else if (index % 3 === 1) {
-          columnStyle = styles.DisplayJobsContentMiddle;
-        } else {
-          columnStyle = styles.DisplayJobsContentRight;
+        columnStyle = styles.DisplayJobsItem;
+        if(link.includes('tiktok.com')) {
+          columnStyle = styles.DisplayJobsContentTiktok;
+        }
+        if(link.includes('youtube.com')) {
+          columnStyle = styles.DisplayJobsContentYoutube;
+        }
+        if(link.includes('linkedin.com')) {
+          columnStyle = styles.DisplayJobsContentLI;
         }
         return (
           <div key={index} className={columnStyle}>
@@ -35,14 +38,14 @@ const JobInfo = ({ jobTitle, links }) => (
             {link.includes('youtube.com') ? (
               <iframe
                 src={link}
-                style={{ width: '450px', height: '300px', border: 'none', maxWidth: '450px' }}
+                style={{ width: '920px', height: '810px', border: 'none'}}
                 title={`YouTube Video ${index + 1}`}
               ></iframe>
             ) : link.includes('tiktok.com') ? (
               <div className="tiktokwrap">
                 <iframe
                   src={link}
-                  style={{ width: '100%', height: '760px', border: 'none', maxWidth: '350px', minWidth: '50px', overflow:"hidden"}}
+                  style={{ width: '100%', height: '760px', border: 'none', maxWidth: '500px', minWidth: '50px', overflow:"hidden"}}
                   title={`TikTok Video ${index + 1}`}
                 ></iframe>
               </div>
@@ -76,28 +79,28 @@ function DisplayJobs() {
   const [isOpen, setIsOpen] = useState(false);
 
 
-  useEffect(() => {
-    // Function to delete links after displaying everything
-    const deleteLinks = async () => {
-      try {
-        // Make a request to the backend to delete the links
-        const response = await fetch('http://127.0.0.1:8000/scraped/', {
-          method: 'DELETE',
-        });
+  // useEffect(() => {
+  //   // Function to delete links after displaying everything
+  //   const deleteLinks = async () => {
+  //     try {
+  //       // Make a request to the backend to delete the links
+  //       const response = await fetch('http://127.0.0.1:8000/scraped/', {
+  //         method: 'DELETE',
+  //       });
 
-        if (response.ok) {
-          console.log('Links deleted successfully');
-        } else {
-          console.error('Failed to delete links');
-        }
-      } catch (error) {
-        console.error('Network error', error);
-      }
-    };
+  //       if (response.ok) {
+  //         console.log('Links deleted successfully');
+  //       } else {
+  //         console.error('Failed to delete links');
+  //       }
+  //     } catch (error) {
+  //       console.error('Network error', error);
+  //     }
+  //   };
 
-    // Call the deleteLinks function after rendering the posts
-    deleteLinks();
-  }, []); // Empty dependency array ensures that this effect runs only once after the initial render
+  //   // Call the deleteLinks function after rendering the posts
+  //   deleteLinks();
+  // }, []); // Empty dependency array ensures that this effect runs only once after the initial render
 
   // Return null if links are being deleted to avoid rendering the component with incomplete data
   if (links === undefined) {
@@ -115,7 +118,7 @@ function DisplayJobs() {
       <Menu isOpen={isOpen} />
 
       {/* Display job information using the JobInfo component */}
-      <div className={`${styles.DisplayJobsContent}`}>
+      <div className={`${styles.DisplayJobsGrid}`}>
         <JobInfo jobTitle={jobTitle} links={links} />
         {/* <RedditEmbed post={{ permalink: '/r/VirtualAssistant/comments/18p8uhn/for_hire_digital_marketing_specialist/' }} /> */}
       </div>

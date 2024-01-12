@@ -19,8 +19,9 @@ body {
 
 
 .tiktokwrap {
+    margin-top: -6px;
     width: 450px;
-    height: 780px;
+    height: 810px;
     overflow: hidden;
     display: flex;
 }
@@ -28,37 +29,45 @@ body {
 .tiktokwrap iframe{
     width: 100% !important;
     height: 100% !important;
-    -webkit-transform: scale(1.4);
-    transform: scale(1.4);
+    transform: scale(1.42);
     -webkit-transform-origin: 0 0;
     transform-origin: 0 0;
     overflow: hidden;
-    margin-left: -20px;
+    margin-left: -90px;
     margin-top: -5px;
 }
 
 
 .llwrap {
-    width: 450px;
-    overflow: hidden;
-   
+    width: 650px;
+    max-height: 550px;
+    max-width: 450px;
+    
 }
 
 .llwrap iframe {
-    margin-top: -80px;
+    /* margin-top: -90px; */
     width: 450px;
-    height: 450px;
     
+    height: 550px;
     -webkit-transform: scale(1.5);
     transform: scale(1.5);
     -webkit-transform-origin: 0 0;
     transform-origin: 0 0;
+    margin-right: -20px;
+    
+    /* margin-left: 20px; */
 
 }
 
 .rwrap {
+    margin-top: 15px;
     width:450px;
-    height: 300px;
+    height: 450px;
     overflow: hidden;
+    /* -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0; */
 }
     
