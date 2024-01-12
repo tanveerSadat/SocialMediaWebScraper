@@ -130,16 +130,48 @@
 
 .DisplayJobsContent {
     margin-left: 1.5%;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
     gap: 10px; 
     justify-content: center;
-    align-items: center;
+    align-items: start;
     height: 100vh; /* Set the container height to the full viewport height */
   }
-  
+
+
+  .DisplayJobsContentLeft {
+    margin-left: 1.5%;
+    display: grid;
+    gap: 10px; 
+    justify-content: left;
+    align-items: start;
+    height: 100vh; /* Set the container height to the full viewport height */
+  }
+
+  .DisplayJobsContentMiddle {
+    margin-left: 1.5%;
+    display: table-column;
+    grid-template-columns: 1;
+    gap: 10px; 
+    justify-content: center;
+    align-items: start;
+    height: 100vh; /* Set the container height to the full viewport height */
+  }
+
+  .DisplayJobsContentRight {
+    margin-left: 1.5%;
+    display: grid;
+    grid-template-columns: 1;
+    gap: 10px; 
+    justify-content: right;
+    align-items: start;
+    height: 100vh; /* Set the container height to the full viewport height */
+  }
+
   .JobInfo {
+    display: inline-block;
     width: calc(33.33% - 16px);
+    height: auto;
     margin-bottom: 16px;
     box-sizing: border-box;
   }
@@ -152,6 +184,7 @@
     border: none;
     max-width: 605px;
     min-width: 50px;
+    overflow: hidden;
   }
 
   .CenteredHeading {

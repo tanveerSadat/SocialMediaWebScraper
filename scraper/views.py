@@ -12,6 +12,8 @@ from scraper.scraping.tiktok import scrape_tiktok
 from scraper.scraping.linkedin import scrape_linkedin
 from scraper.scraping.reddit import scrape_reddit
 
+import random
+
 @api_view(['GET', 'POST', 'DELETE'])
 @permission_classes([AllowAny])  # Allow any origin to access this view
 @renderer_classes([JSONRenderer])  # Use JSONRenderer with CORS headers
@@ -35,8 +37,12 @@ def scraped_links(request):
         combined_links = combined_links + scrape_linkedin(job_to_scrape) + " "
         combined_links = combined_links + scrape_reddit(job_to_scrape) + " "
 
+        links_list = combined_links.split(" ")
+        random.shuffle(links_list)
+        shuffled_links = ' '.join(links_list)
+
         # Save the scraped data to the database
-        scrape_instance = scrape.objects.create(links=combined_links)
+        scrape_instance = scrape.objects.create(links=shuffled_links)
 
         # Serialize and return the saved data
         serializer = ScrapeSerializer(scrape_instance)

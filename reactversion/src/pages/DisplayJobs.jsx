@@ -20,38 +20,48 @@ const JobInfo = ({ jobTitle, links }) => (
   <div className={styles.DisplayJobsContent}>
     <h1 className={styles.CenteredHeading}>Posts about {jobTitle}</h1>
     {links && links.length > 0 ? (
-      <div className={styles.DisplayJobsContent}>
-        {links.map((link, index) => (
-          <div key={index} className={styles.JobInfo}>
+      links.map((link, index) => {
+        let columnStyle;
+        if (index % 3 === 0) {
+          columnStyle = styles.DisplayJobsContentLeft;
+        } else if (index % 3 === 1) {
+          columnStyle = styles.DisplayJobsContentMiddle;
+        } else {
+          columnStyle = styles.DisplayJobsContentRight;
+        }
+        return (
+          <div key={index} className={columnStyle}>
             {/* Check if the link is a YouTube link or a TikTok link and render the appropriate iframe */}
             {link.includes('youtube.com') ? (
               <iframe
                 src={link}
-                style={{ width: '100%', height: '400px', border: 'none', maxWidth: '605px', minWidth: '50px' }}
+                style={{ width: '450px', height: '300px', border: 'none', maxWidth: '450px' }}
                 title={`YouTube Video ${index + 1}`}
               ></iframe>
             ) : link.includes('tiktok.com') ? (
-              <iframe
-                src={link}
-                style={{ width: '100%', height: '760px', border: 'none', maxWidth: '350px', minWidth: '50px' }}
-                title={`TikTok Video ${index + 1}`}
-              ></iframe>
+              <div className="tiktokwrap">
+                <iframe
+                  src={link}
+                  style={{ width: '100%', height: '760px', border: 'none', maxWidth: '350px', minWidth: '50px', overflow:"hidden"}}
+                  title={`TikTok Video ${index + 1}`}
+                ></iframe>
+              </div>
             ) : link.includes('linkedin.com') ? (
-                // If the link is a LinkedIn Profile, render the LinkedInBadge component
+              <div className="llwrap">
                 <LinkedInBadge profile={{ permalink: link }} />
-              ) : link.includes('reddit.com') ? (
-                // If the link is a Reddit post, render the RedditEmbed component
+              </div>
+            ) : link.includes('reddit.com') ? (
+              <div className="rwrap">
                 <RedditEmbed post={{ permalink: link }} />
-              ) : (
-                
-              // If the link isn't a social media, render it as a regular link
+              </div>
+            ) : (
               <a href={link} target="_blank" rel="noopener noreferrer">
                 {link}
               </a>
             )}
           </div>
-        ))}
-      </div>
+        );
+      })
     ) : (
       <p>No posts found for {jobTitle}.</p>
     )}
@@ -64,6 +74,7 @@ function DisplayJobs() {
   const { state } = location;
   const { links, jobTitle } = state;
   const [isOpen, setIsOpen] = useState(false);
+
 
   useEffect(() => {
     // Function to delete links after displaying everything
