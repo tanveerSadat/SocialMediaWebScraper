@@ -32,10 +32,10 @@ def scraped_links(request):
 
         combined_links = ""
 
-        combined_links = combined_links + scrape_youtube(job_to_scrape) + " "
-        combined_links = combined_links + scrape_tiktok(job_to_scrape) + " "
-        combined_links = combined_links + scrape_linkedin(job_to_scrape) + " "
-        combined_links = combined_links + scrape_reddit(job_to_scrape) + " "
+        combined_links = combined_links + scrape_youtube(job_to_scrape).rstrip() + " "
+        combined_links = combined_links + scrape_tiktok(job_to_scrape).rstrip() + " "
+        combined_links = combined_links + scrape_linkedin(job_to_scrape).rstrip() + " "
+        combined_links = combined_links + scrape_reddit(job_to_scrape).rstrip()
 
         links_list = combined_links.split(" ")
         random.shuffle(links_list)

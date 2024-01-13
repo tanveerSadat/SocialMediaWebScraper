@@ -8,7 +8,7 @@ def scrape_tiktok(job_title):
     # Extract TikTok embed links from the search results
     tiktok_links = []
     for result in search(query, tld="com", stop=None, pause=2):
-        if "https://www.tiktok.com/@" in result:
+        if "https://www.tiktok.com/@" in result and result.count('/') > 3:
             # Modify the TikTok link to the embed format
             username = result.split("/")[-1]
             embed_link = f'https://www.tiktok.com/embed/{username}'

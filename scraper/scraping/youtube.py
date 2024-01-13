@@ -61,6 +61,6 @@ def scrape_youtube(input):
                     unique_links.add(href)
                     # print(href)
                     # youtube_links += href + " "
-
+        youtube_links = youtube_links.rstrip()
     driver.quit()
     return youtube_links
