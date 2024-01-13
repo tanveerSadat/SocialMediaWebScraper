@@ -6,7 +6,7 @@ import './table.css'
 import { useNavigate } from "react-router-dom"; // Import useNavigate from React Router
 
 
-function Table(){
+function Table({isOpen}) {
     const navigate = useNavigate(); // Create a navigate function
 
     const data = React.useMemo(() => dataFromFile, []); //Setup data if getting from api do it here
@@ -50,8 +50,6 @@ function Table(){
         setGlobalFilter(value);
         setFilterInput(value);
     };
-  
-  // ... (previous code)
 
     const handleButtonClick = async (jobTitle, links) => {
       try {
@@ -81,12 +79,8 @@ function Table(){
 
   return (
     <div className="Table">
+    <input value={filterInput} onChange={searchChange} placeholder={" Filter Results"}/>
       <div className="Table-container">
-        <input 
-          value={filterInput}
-          onChange={searchChange}
-          placeholder={"Filter Results"}
-        />
         <div className="Table-wrapper">
           <table {...getTableProps()}>
             <thead>

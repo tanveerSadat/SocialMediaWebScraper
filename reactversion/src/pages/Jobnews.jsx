@@ -28,7 +28,9 @@ const Jobnews = () => {
           </button>
     
           <Menu isOpen={isOpen} />
-          <Table />
+          <h1 className={styles.tableTitle}>Job Search</h1>
+          <h1 className={styles.tableSide}>Transforming complex career decisions into simple steps!</h1>
+          <Table isOpen={isOpen} />
         </>
         
     );

@@ -136,8 +136,8 @@
     display: flex;
     flex-direction: column;
     margin-top: 125px;
-    border-radius: 100px;
-    transition: margin-left 0.5s ease-in-out; 
+    transition: margin-left 0.5s ease-in-out;
+    position: relative; 
 }
 
 /* New styles for DisplayPage component */
@@ -146,7 +146,6 @@
 }
 
 .box {
-    display: flex;
     margin-left: 125px;
     padding-left: 25px;
     width: 58%;
@@ -157,6 +156,17 @@
     justify-content: left;
     font-size: 20px;
     font-weight: bold;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+}
+
+.box:first-child {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.box:nth-child(5) {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .box:hover {
@@ -170,12 +180,13 @@
     font-weight: bold;
     color: white;
     left: 58%;
-    background-color: #88b6e7;
+    background-color: #78a9df;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
-    transition: margin-left 0.5s ease-in-out; 
+    transition: margin-left 0.5s ease-in-out;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 4px 8px 0 rgba(0, 0, 0, 0.25); 
 }
 
 /* quiz button styles */
@@ -189,7 +200,8 @@
     height: 75px; 
     margin-right: 30px; 
     border-radius: 20%;
-    object-fit: cover;  
+    object-fit: cover; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 4px 8px 0 rgba(0, 0, 0, 0.4); 
 }
 
 .quizChecklist {
@@ -201,13 +213,18 @@
     background-color: #c6ddf7; 
     border-radius: 15px;
     transition: ease-in-out 0.5s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .quizChecklist div {
     display: flex;
     align-items: center;
+    margin-top: 5px;
     font-size: 18px;
-    margin-top: 20px;
+}
+
+.quizChecklist label {
+    white-space: nowrap;
 }
 
 .quizChecklist input[type="checkbox"] {
@@ -218,20 +235,22 @@
 }
 
 .quizChecklist.open {
-    margin-left: 75px;
+    margin-left: 20px;
 }
 
 .quizHeading {
+    color: #3e5eca;
     font-size: 28px;
     margin-top: -730px;
     margin-left: 130px; 
 }
 
 .progressHeading {
+    color: #3e5eca;
     font-size: 28px; 
     margin-top: -50px;
     margin-left: 1310px;
-    transition: ease-in-out 0.5s;
+    transition: 0.5s ease-in-out;
 }
 
 .progressHeading.open {
@@ -243,32 +262,79 @@
     left: 68%;
     height: 265px;
     width: 350px;
-    top: 515px;
+    top: 390px;
     padding: 10px;
     background-color: #c6ddf7; 
     border-radius: 15px;
     transition: 0.5s ease-in-out;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .quizProgress progress {
-    margin-top: 90px;
-    margin-left: 52px;
-    width: 80%;
-    height: 65px;
+    margin-top: 85px;
+    margin-left: 15px;
+    width: 92%;
+    height: 80px;
+}
+
+.progressText {
+    color: #3e5eca;
+    font-size: 28px;
+    margin-top: 50px;
+    margin-left: 20px;
 }
 
 .quizProgress p {
+    font-weight: lighter;
     font-size: 18px;
-    margin-top: -140px;
-    margin-bottom: 58px;
-    margin-left: 23px;
+    margin-top: -160px;
+    margin-bottom: 70px;
+    margin-left: 20px;
 }
 
 .quizProgress.open {
-    margin-left: 75px;
+    margin-left: 20px;
 }
 
 .completedPercentage {
-    font-size: 18px;
-    margin-left: 5px;
+    font-size: 15px;
+    margin-left: 165px;
+}
+
+.targetPhoto {
+    position: relative;
+    width: 205px;
+    height: auto;
+    margin-top: 250px;
+    margin-left: 90%;
+    transform: rotate(-20deg);
+    transition: ease-in-out 0.5s;
+    z-index: 1;
+}
+
+.targetPhoto.isPageLoaded {
+    position: fixed;
+    margin-top: 315px;
+    margin-left: 82%;
+}
+
+.targetPhoto.open {
+    margin-left: 76.5%;
+}
+
+.tableTitle {
+    position: fixed;
+    color: #3e5eca;
+    font-size: 28px;
+    margin-top: 125px;
+    margin-left: 297px;
+}
+
+
+.tableSide {
+    position: fixed;
+    color: #3e5eca;
+    font-size: 16px;
+    margin-top: 145px;
+    margin-left: 72%;
 }
