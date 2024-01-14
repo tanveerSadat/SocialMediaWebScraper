@@ -11,7 +11,7 @@ body {
 .Table-container {  
   position: absolute;
   left: 54%;
-  top: 60%;
+  top: 55%;
   height: 600px;
   overflow-y: scroll;
   -webkit-transform: translate(-50%, -50%);
@@ -46,17 +46,19 @@ table {
 
 input {  
   position: sticky;
-  width: 77%;
+  width: 79%;
   height: 50px;
   border-color: #6a809e;
   border-style: solid;
   border-width: 3px;
   font-size: 18px;
-  margin-left: 15.25%;
+  margin-left: 14%;
   margin-top: 9%;
   border-radius: 10px;
   outline: none;
   z-index: 100; 
+  text-indent: 8px;
+  
 }
 
 .myButton {

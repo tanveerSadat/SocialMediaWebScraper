@@ -15,12 +15,13 @@ const LoadingComponent = () => {
       alignItems="center"
       justifyContent="center"
       height="100vh"
+      width="1475px"
     >
       <CircularProgress />
     </Box>
   );
 };
-
+  
 function Table({isOpen}) {
     const navigate = useNavigate(); // Create a navigate function
     const [isLoading, setIsLoading] = React.useState(false);
@@ -99,7 +100,7 @@ function Table({isOpen}) {
 
   return (
     <div className="Table">
-    <input value={filterInput} onChange={searchChange} placeholder={" Filter Results"}/>
+    <input value={filterInput} onChange={searchChange} placeholder={"Filter Results"}/>
       <div className="Table-container">
         <div className="Table-wrapper">
         {isLoading ? (

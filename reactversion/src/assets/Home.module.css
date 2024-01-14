@@ -63,7 +63,7 @@
 
 /* Adjust content area margin when the menu is expanded */
 .titleText.open {
-    margin-left: 170px; /* Adjusted margin for the open menu */
+    margin-left: 120px; /* Adjusted margin for the open menu */
 }
 
 /* Content styles */
@@ -87,7 +87,7 @@
 }
 
 .content.open {
-    margin-left: 200px;
+    margin-left: 150px;
 }
 
 .toggleMenu {
@@ -306,12 +306,12 @@
     color: #3e5eca;
     font-size: 28px; 
     margin-top: -50px;
-    margin-left: 1310px;
+    margin-left: 1270px;
     transition: 0.5s ease-in-out;
 }
 
 .progressHeading.open {
-    margin-left: 1205px;
+    margin-left: 1168px;
 }
 
 .quizProgress {
@@ -384,7 +384,7 @@
     color: #3e5eca;
     font-size: 28px;
     margin-top: 125px;
-    margin-left: 297px;
+    margin-left: 266px;
 }
 
 
