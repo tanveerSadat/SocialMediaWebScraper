@@ -6,6 +6,7 @@ body {
     background-color: #88b6e7;
     background: radial-gradient(circle at 85%, #c7d1db, #a5c3e4, #85b4e7);
     overflow-x: hidden;
+    overflow-y: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }

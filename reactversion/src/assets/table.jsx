@@ -21,7 +21,7 @@ const LoadingComponent = () => {
   );
 };
 
-function Table(){
+function Table({isOpen}) {
     const navigate = useNavigate(); // Create a navigate function
     const [isLoading, setIsLoading] = React.useState(false);
 
@@ -48,7 +48,7 @@ function Table(){
         Header: "",
         accessor: "links",
         Cell: () => (
-          <Button variant="contained" className="myButton" style={{ backgroundColor: "#577399" }} > News </Button>
+          <Button variant="contained" className="myButton" style={{ backgroundColor: "#577399" }} > Job News </Button>
         ),
       },
     ],
@@ -66,7 +66,7 @@ function Table(){
         setGlobalFilter(value);
         setFilterInput(value);
     };
-  
+
     const handleButtonClick = async (jobTitle, links) => {
       try {
         setIsLoading(true);
@@ -99,12 +99,8 @@ function Table(){
 
   return (
     <div className="Table">
+    <input value={filterInput} onChange={searchChange} placeholder={" Filter Results"}/>
       <div className="Table-container">
-        <input 
-          value={filterInput}
-          onChange={searchChange}
-          placeholder={"Filter Results"}
-        />
         <div className="Table-wrapper">
         {isLoading ? (
             <LoadingComponent /> // Render LoadingComponent when isLoading is true
@@ -137,10 +133,10 @@ function Table(){
                          <Button
                            variant="contained"
                            className="myButton"
-                           style={{ backgroundColor: "#577399" }}
+                           style={{backgroundColor: "#6a809e", fontWeight: "bold"}}
                            onClick={() => handleButtonClick(row.original.job_title, row.original.links)}
                          >
-                           News
+                           Job News
                          </Button>
                        ) : (
                          cell.render("Cell")

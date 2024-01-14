@@ -1,4 +1,3 @@
-
 import styles from '../assets/Home.module.css';
 import '../assets/index.css';
 import React, {useState, useEffect} from 'react';
@@ -9,7 +8,7 @@ const Menu = ({isOpen}) => (
   <div className={`${styles.menu} ${isOpen ? styles.open : ''}`}>
     <a href="home" id="home">Home</a>
     <a href="job-news" id="jobnews">Job News</a>
-    <a href="#quizzes" id="quizzes">Quizzes</a>
+    <a href="quizzes" id="quizzes">Quizzes</a>
     <a href="#about" id="about">About</a>
   </div>
 );
@@ -29,7 +28,9 @@ const Jobnews = () => {
           </button>
     
           <Menu isOpen={isOpen} />
-          <Table />
+          <h1 className={styles.tableTitle}>Job Search</h1>
+          <h1 className={styles.tableSide}>Transforming complex career decisions into simple steps!</h1>
+          <Table isOpen={isOpen} />
         </>
         
     );
