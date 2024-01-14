@@ -18,40 +18,53 @@ const Menu = ({ isOpen }) => (
 // JobInfo component
 const JobInfo = ({ jobTitle, links }) => (
   <div className={styles.DisplayJobsContent}>
-    <h1 className={styles.CenteredHeading}>Posts about {jobTitle}</h1>
+    {/* <h1 className={styles.CenteredHeading}>Posts about {jobTitle}</h1> */}
     {links && links.length > 0 ? (
-      <div className={styles.DisplayJobsContent}>
-        {links.map((link, index) => (
-          <div key={index} className={styles.JobInfo}>
+      links.map((link, index) => {
+        let columnStyle;
+        columnStyle = styles.DisplayJobsItem;
+        if(link.includes('tiktok.com')) {
+          columnStyle = styles.DisplayJobsContentTiktok;
+        }
+        if(link.includes('youtube.com')) {
+          columnStyle = styles.DisplayJobsContentYoutube;
+        }
+        if(link.includes('linkedin.com')) {
+          columnStyle = styles.DisplayJobsContentLI;
+        }
+        return (
+          <div key={index} className={columnStyle}>
             {/* Check if the link is a YouTube link or a TikTok link and render the appropriate iframe */}
             {link.includes('youtube.com') ? (
               <iframe
                 src={link}
-                style={{ width: '100%', height: '400px', border: 'none', maxWidth: '605px', minWidth: '50px' }}
+                style={{ width: '920px', height: '810px', border: 'none'}}
                 title={`YouTube Video ${index + 1}`}
               ></iframe>
             ) : link.includes('tiktok.com') ? (
-              <iframe
-                src={link}
-                style={{ width: '100%', height: '760px', border: 'none', maxWidth: '350px', minWidth: '50px' }}
-                title={`TikTok Video ${index + 1}`}
-              ></iframe>
+              <div className="tiktokwrap">
+                <iframe
+                  src={link}
+                  style={{ width: '100%', height: '760px', border: 'none', maxWidth: '500px', minWidth: '50px', overflow:"hidden"}}
+                  title={`TikTok Video ${index + 1}`}
+                ></iframe>
+              </div>
             ) : link.includes('linkedin.com') ? (
-                // If the link is a LinkedIn Profile, render the LinkedInBadge component
+              <div className="llwrap">
                 <LinkedInBadge profile={{ permalink: link }} />
-              ) : link.includes('reddit.com') ? (
-                // If the link is a Reddit post, render the RedditEmbed component
+              </div>
+            ) : link.includes('reddit.com') ? (
+              <div className="rwrap">
                 <RedditEmbed post={{ permalink: link }} />
-              ) : (
-                
-              // If the link isn't a social media, render it as a regular link
+              </div>
+            ) : (
               <a href={link} target="_blank" rel="noopener noreferrer">
                 {link}
               </a>
             )}
           </div>
-        ))}
-      </div>
+        );
+      })
     ) : (
       <p>No posts found for {jobTitle}.</p>
     )}
@@ -65,28 +78,29 @@ function DisplayJobs() {
   const { links, jobTitle } = state;
   const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    // Function to delete links after displaying everything
-    const deleteLinks = async () => {
-      try {
-        // Make a request to the backend to delete the links
-        const response = await fetch('http://127.0.0.1:8000/scraped/', {
-          method: 'DELETE',
-        });
 
-        if (response.ok) {
-          console.log('Links deleted successfully');
-        } else {
-          console.error('Failed to delete links');
-        }
-      } catch (error) {
-        console.error('Network error', error);
-      }
-    };
+  // useEffect(() => {
+  //   // Function to delete links after displaying everything
+  //   const deleteLinks = async () => {
+  //     try {
+  //       // Make a request to the backend to delete the links
+  //       const response = await fetch('http://127.0.0.1:8000/scraped/', {
+  //         method: 'DELETE',
+  //       });
 
-    // Call the deleteLinks function after rendering the posts
-    deleteLinks();
-  }, []); // Empty dependency array ensures that this effect runs only once after the initial render
+  //       if (response.ok) {
+  //         console.log('Links deleted successfully');
+  //       } else {
+  //         console.error('Failed to delete links');
+  //       }
+  //     } catch (error) {
+  //       console.error('Network error', error);
+  //     }
+  //   };
+
+  //   // Call the deleteLinks function after rendering the posts
+  //   deleteLinks();
+  // }, []); // Empty dependency array ensures that this effect runs only once after the initial render
 
   // Return null if links are being deleted to avoid rendering the component with incomplete data
   if (links === undefined) {
@@ -104,7 +118,7 @@ function DisplayJobs() {
       <Menu isOpen={isOpen} />
 
       {/* Display job information using the JobInfo component */}
-      <div className={`${styles.DisplayJobsContent}`}>
+      <div className={`${styles.DisplayJobsGrid}`}>
         <JobInfo jobTitle={jobTitle} links={links} />
         {/* <RedditEmbed post={{ permalink: '/r/VirtualAssistant/comments/18p8uhn/for_hire_digital_marketing_specialist/' }} /> */}
       </div>

@@ -39,7 +39,7 @@ function LinkedInBadge({ profile }) {
       <div
         className="badge-base LI-profile-badge"
         data-locale="en_US"
-        data-size="medium"
+        data-size="large"
         data-theme="light"
         data-type="VERTICAL"
         data-vanity={vanityName}
