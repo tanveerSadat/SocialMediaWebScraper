@@ -128,7 +128,7 @@
 .DisplayJobsContent {
     display: grid;
     grid-template-columns: repeat(3, calc((100% / 3) - 30px));
-    margin-top: 9000px;
+    margin-top: 10000px;
     grid-auto-rows: 400px;
     grid-auto-flow: dense;
     gap: 10px; 
@@ -136,15 +136,14 @@
     align-items: center;
     overflow: hidden;
   }
-
-
+  
+/* filter: blur(3px) */
   .DisplayJobsItem {
     margin-top: 50px;
     margin-bottom: 70px;
     width: 600px;
     justify-content: left;
     align-items: start;
-    overflow: hidden;
     height: 400px;
   }
 
@@ -208,6 +207,7 @@
 }
 
 .box {
+    margin: 0;
     margin-left: 125px;
     padding-left: 25px;
     width: 58%;
@@ -218,7 +218,7 @@
     justify-content: left;
     font-size: 20px;
     font-weight: bold;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .box:first-child {
@@ -237,7 +237,7 @@
 
 /* quiz button styles */
 .quizButton {
-    position: fixed;
+    position: absolute;
     padding: 12px 20px;
     font-weight: bold;
     color: white;
@@ -249,11 +249,6 @@
     font-size: 16px;
     transition: margin-left 0.5s ease-in-out;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 4px 8px 0 rgba(0, 0, 0, 0.25); 
-}
-
-/* quiz button styles */
-.quizButton.open {
-    margin-left: 75px;
 }
 
 /* quiz image styles */
@@ -375,13 +370,13 @@
 }
 
 .targetPhoto.isPageLoaded {
-    position: fixed;
+    position: absolute;
     margin-top: 315px;
     margin-left: 82%;
 }
 
 .targetPhoto.open {
-    margin-left: 76.5%;
+    margin-left: 84.5%;
 }
 
 .tableTitle {

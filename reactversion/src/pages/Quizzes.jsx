@@ -27,7 +27,7 @@ const QuizPage = ({isOpen}) => {
             <div className={styles.box} key={index}>
               <img src={quiz.photo} className={styles.quizImage} />
               <span>{quiz.name}</span>
-              <button className={`${styles.quizButton} ${isOpen ? styles.open : ''}`}>Take Quiz</button>
+              <button className={styles.quizButton}>Take Quiz</button>
             </div>
           ))}
           <QuizChecklist quizzes={quizzes} isOpen={isOpen} />
@@ -50,11 +50,11 @@ const QuizChecklist = ({quizzes, isOpen}) => {
           {quizzes.map((quiz, index) => (
             <div key={index}>
               <div>
-                <input type="checkbox"  id={`quiz${index}`}  name={`quiz${index}`}  value={quiz.name}  onChange={handleCheckboxChange}/>
+                <input type="checkbox"  id={`quiz${index}`}  name={`quiz${index}`} value={quiz.name} onChange={handleCheckboxChange} />
               </div>
             <div>
               <label htmlFor={`quiz${index}`}>{quiz.name}</label>
-             </div>
+            </div>
         </div>
       ))}
     </div>
@@ -72,15 +72,15 @@ const QuizProgress = ({completed, total, completedCount, isOpen}) => {
     return () => clearTimeout(delay);}, []);
 
   return (
-    <div>
-      <img src="https://www.pngall.com/wp-content/uploads/2016/07/Target-Free-Download-PNG.png" className={`${styles.targetPhoto} ${isPageLoaded ? styles.isPageLoaded : ''} ${isOpen ? styles.open : ''}`} />
-        <div className={`${styles.quizProgress} ${isOpen ? styles.open : ''}`}>
-          <h1 className={styles.progressText}> On Track!</h1>
-          <progress value={completed} max="100" />
-          <p> You have done {completedCount} quizzes and have{' '} <span style={{ marginLeft: '3em' }}> </span> {total - completedCount} left to complete! </p>
-          <span className={styles.completedPercentage}>{completed}%</span>
-        </div>
-    </div>
+      <div>
+        <img src="https://www.pngall.com/wp-content/uploads/2016/07/Target-Free-Download-PNG.png" className={`${styles.targetPhoto} ${isPageLoaded ? styles.isPageLoaded : ''} ${isOpen ? styles.open : ''}`} />
+          <div className={`${styles.quizProgress} ${isOpen ? styles.open : ''}`}>
+            <h1 className={styles.progressText}> On Track!</h1>
+            <progress value={completed} max="100" />
+            <p> You have done {completedCount} quizzes and have{' '} <span style={{ marginLeft: '3em' }}> </span> {total - completedCount} left to complete! </p>
+            <span className={styles.completedPercentage}>{completed}%</span>
+          </div>
+      </div>
   );
 };
 
@@ -94,6 +94,7 @@ const Quizzes = () => {
 
     return (
         <>
+        <div style={{overflow: 'hidden'}}></div>
         <button id="toggleMenuButton" className={isOpen ? styles.pressed : styles.toggleMenu } onClick={() => setIsOpen(!isOpen)} style={{top: '0px', border: 'none', outline: 'none' }}>
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/2048px-Hamburger_icon.svg.png" width="46" height="45"/>
         </button>

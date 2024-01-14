@@ -69,6 +69,7 @@ const Home = () => {
 
     return (
       <>
+        <div style={{overflow: 'hidden'}}></div>
         <button id="toggleMenuButton" className={isOpen ? styles.pressed : styles.toggleMenu } onClick={() => setIsOpen(!isOpen)} style={{top: '0px', border: 'none', outline: 'none' }}>
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/2048px-Hamburger_icon.svg.png" width="46" height="45"/>
         </button>

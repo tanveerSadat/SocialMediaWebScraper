@@ -77,6 +77,7 @@ function DisplayJobs() {
   const { state } = location;
   const { links, jobTitle } = state;
   const [isOpen, setIsOpen] = useState(false);
+  document.body.style.overflowY
 
 
   // useEffect(() => {
@@ -115,10 +116,10 @@ function DisplayJobs() {
       </button>
 
       {/* Include the Menu component */}
-      <Menu isOpen={isOpen} />
+      <Menu isOpen={isOpen} style={{ textDecoration: 'none' }} />
 
       {/* Display job information using the JobInfo component */}
-      <div className={`${styles.DisplayJobsGrid}`}>
+      <div className={`${styles.DisplayJobsGrid}` }>
         <JobInfo jobTitle={jobTitle} links={links} />
         {/* <RedditEmbed post={{ permalink: '/r/VirtualAssistant/comments/18p8uhn/for_hire_digital_marketing_specialist/' }} /> */}
       </div>
