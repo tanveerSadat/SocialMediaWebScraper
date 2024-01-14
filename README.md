@@ -4,8 +4,12 @@ The `Social Media Web Scraper` was designed with a clear objective: to help high
 
 Throughout middle school and high school, our school boards provided us with myBlueprint, a website designed to help students plan for their future. However, we found it ineffective as it failed to provide insight into how careers shape our lives. This is where the `Social Media Web Scraper` comes in. By providing live social media posts from various sources such as YouTube, Reddit, and TikTok, as well as connecting users to professionals in their desired career paths through LinkedIn, we have created a space for students to get a glimpse into the lives of professionals.
 
+<p align="center">
+  <img src="images/jobnewsgif.gif" alt="Job News GIF">
+</p
 
-### How to Use
+
+## How to Use
 
 1. Install Required Packages: Open a terminal or command prompt and install the necessary packages using the following command:
 
@@ -63,5 +67,5 @@ Throughout middle school and high school, our school boards provided us with myB
 - **Personalized Results**: We aim to personalize results based on the user's IP address or inputted location. This will enable us to provide information that is more relevant and useful to the user, such as local job opportunities or educational programs.
 
 
-# Summary
+## Summary
 The `Social Media Web Scraper`  is a bridge connecting students to their potential futures. By offering a real-world glimpse into various professions, we aim to alleviate the anxiety and uncertainty that many students face when choosing a career path. Our project is a testament to our learning journey, and we're excited about the potential enhancements that will make this tool even more valuable to students. We believe that with the right information and insights, every student can find a career they're passionate about.
