@@ -1,7 +1,47 @@
+
 # Social Media Web Scraper
 The `Social Media Web Scraper` was designed with a clear objective: to help high school graduates easily discover career paths that align with their personalities. As recent high school graduates ourselves, we understand the anxiety that students face. Many are uncertain about their future careers and apply to post-secondary institutions with the primary goal of obtaining a degree, rather than pursuing a career they are passionate about.
 
 Throughout middle school and high school, our school boards provided us with myBlueprint, a website designed to help students plan for their future. However, we found it ineffective as it failed to provide insight into how careers shape our lives. This is where the `Social Media Web Scraper` comes in. By providing live social media posts from various sources such as YouTube, Reddit, and TikTok, as well as connecting users to professionals in their desired career paths through LinkedIn, we have created a space for students to get a glimpse into the lives of professionals.
+
+
+### How to Use
+
+1. Install Required Packages: Open a terminal or command prompt and install the necessary packages using the following command:
+
+   #### Backend
+   ```shell
+    pip install django
+    pip install djangorestframework
+    pip install selenium
+    pip install webdriver_manager
+    pip install corsheaders
+    pip install google
+    ```
+    #### Frontend
+    ```shell
+    npm install
+    ```
+    
+
+2. Open two terminals in project location and run the commands below:
+    #### First terminal
+
+    ```shell
+    cd SocialMediaWebScraper
+    python manage.py makemigrations
+    python manage.py migrate
+    python manage.py runserver
+    ```
+    #### Second terminal
+    ```shell 
+    cd SocialMediaWebScraper
+    cd reactversion
+    npm run dev
+    ```
+    #### In the second terminal enter 'o' and return to open webpage. To exit enter 'q'.
+    #### Return back to the first terminal and enter 'ctrl + c' to end backend processes if you wish to quit.
+
 
 
 ## Learnings from the Project
@@ -21,6 +61,7 @@ Throughout middle school and high school, our school boards provided us with myB
 - **Connections with Local Universities**: We plan to establish connections with local universities. This will allow us to provide information about relevant courses and programs that can help students pursue their chosen career paths.
 
 - **Personalized Results**: We aim to personalize results based on the user's IP address or inputted location. This will enable us to provide information that is more relevant and useful to the user, such as local job opportunities or educational programs.
+
 
 # Summary
 The `Social Media Web Scraper`  is a bridge connecting students to their potential futures. By offering a real-world glimpse into various professions, we aim to alleviate the anxiety and uncertainty that many students face when choosing a career path. Our project is a testament to our learning journey, and we're excited about the potential enhancements that will make this tool even more valuable to students. We believe that with the right information and insights, every student can find a career they're passionate about.

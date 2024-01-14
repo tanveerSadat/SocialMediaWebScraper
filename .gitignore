@@ -99,6 +99,10 @@ StyleCopReport.xml
 *.svclog
 *.scc
 
+#Unneccessary Extensions
+*.google-cookie
+*.sqlite3
+
 # Chutzpah Test files
 _Chutzpah*
 
