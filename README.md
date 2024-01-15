@@ -8,9 +8,9 @@ Throughout middle school and high school, our school boards provided us with myB
   <img src="images/jobnewsgif.gif" alt="Job News GIF" width="98.5%">
 </p
 
-[<img src="images/HomeNoMenu.jpeg" width="49%" height="267"/>](images/HomeNoMenu.jpeg) [<img src="images/HomeMenu.jpeg" width="49%" height="267"/>](images/HomeMenu.jpeg)
-[<img src="images/Table.jpeg" width="49%" height="267"/>](images/Table.jpeg) [<img src="images/JobNews.jpeg" width="49%" height="267"/>](images/JobNews.jpeg)
-[<img src="images/Quizzes.jpeg" width="49%" height="267"/>](images/Quizzes.jpeg) [<img src="images/QuzzesSelect.jpeg" width="49%" height="267"/>](images/QuzzesSelect.jpeg)
+[<img src="images/HomeNoMenu.jpeg" width="49%" height="220"/>](images/HomeNoMenu.jpeg) [<img src="images/HomeMenu.jpeg" width="49%" height="220"/>](images/HomeMenu.jpeg)
+[<img src="images/Table.jpeg" width="49%" height="220"/>](images/Table.jpeg) [<img src="images/JobNews.jpeg" width="49%" height="220"/>](images/JobNews.jpeg)
+[<img src="images/Quizzes.jpeg" width="49%" height="220"/>](images/Quizzes.jpeg) [<img src="images/QuzzesSelect.jpeg" width="49%" height="220"/>](images/QuzzesSelect.jpeg)
 
 
 ## How to Use
