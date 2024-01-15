@@ -8,9 +8,9 @@ Throughout middle school and high school, our school boards provided us with myB
   <img src="images/jobnewsgif.gif" alt="Job News GIF" width="98.5%">
 </p
 
-[<img src="images/HomeNoMenu.jpeg" width="400" height="auto"/>](images/HomeNoMenu.jpeg) [<img src="images/HomeMenu.jpeg" width="400" height="auto"/>](images/HomeMenu.jpeg)
-[<img src="images/Table.jpeg" width="400" height="auto"/>](images/Table.jpeg) [<img src="images/JobNews.jpeg" width="400" height="auto"/>](images/JobNews.jpeg)
-[<img src="images/Quizzes.jpeg" width="400" height="auto"/>](images/Quizzes.jpeg) [<img src="images/QuzzesSelect.jpeg" width="400" height="auto"/>](images/QuzzesSelect.jpeg)
+[<img src="images/HomeNoMenu.jpeg" width="405" height="auto"/>](images/HomeNoMenu.jpeg) [<img src="images/HomeMenu.jpeg" width="405" height="auto"/>](images/HomeMenu.jpeg)
+[<img src="images/Table.jpeg" width="405" height="auto"/>](images/Table.jpeg) [<img src="images/JobNews.jpeg" width="405" height="auto"/>](images/JobNews.jpeg)
+[<img src="images/Quizzes.jpeg" width="405" height="auto"/>](images/Quizzes.jpeg) [<img src="images/QuzzesSelect.jpeg" width="405" height="auto"/>](images/QuzzesSelect.jpeg)
 
 
 ## How to Use
