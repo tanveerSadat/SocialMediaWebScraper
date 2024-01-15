@@ -1,12 +1,16 @@
-
+![](images/"banner.jpeg")
 # Social Media Web Scraper
 The `Social Media Web Scraper` was designed with a clear objective: to help high school graduates easily discover career paths that align with their personalities. As recent high school graduates ourselves, we understand the anxiety that students face. Many are uncertain about their future careers and apply to post-secondary institutions with the primary goal of obtaining a degree, rather than pursuing a career they are passionate about.
 
 Throughout middle school and high school, our school boards provided us with myBlueprint, a website designed to help students plan for their future. However, we found it ineffective as it failed to provide insight into how careers shape our lives. This is where the `Social Media Web Scraper` comes in. By providing live social media posts from various sources such as YouTube, Reddit, and TikTok, as well as connecting users to professionals in their desired career paths through LinkedIn, we have created a space for students to get a glimpse into the lives of professionals.
 
-<p align="center">
-  <img src="images/jobnewsgif.gif" alt="Job News GIF">
+<p>
+  <img src="images/jobnewsgif.gif" alt="Job News GIF" width="98.5%">
 </p
+
+[<img src="images/HomeNoMenu.jpeg" width="49%" height="267"/>](images/HomeNoMenu.jpeg) [<img src="images/HomeMenu.jpeg" width="49%" height="267"/>](images/HomeMenu.jpeg)
+[<img src="images/Table.jpeg" width="49%" height="267"/>](images/Table.jpeg) [<img src="images/JobNews.jpeg" width="49%" height="267"/>](images/JobNews.jpeg)
+[<img src="images/Quizzes.jpeg" width="49%" height="267"/>](images/Quizzes.jpeg) [<img src="images/QuzzesSelect.jpeg" width="49%" height="267"/>](images/QuzzesSelect.jpeg)
 
 
 ## How to Use
