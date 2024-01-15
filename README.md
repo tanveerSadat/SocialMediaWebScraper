@@ -1,4 +1,4 @@
-![](images/"banner.jpeg")
+[<img src="images/Banner.jpeg" width="100%" height="auto"/>](images/Banner.jpeg)
 # Social Media Web Scraper
 The `Social Media Web Scraper` was designed with a clear objective: to help high school graduates easily discover career paths that align with their personalities. As recent high school graduates ourselves, we understand the anxiety that students face. Many are uncertain about their future careers and apply to post-secondary institutions with the primary goal of obtaining a degree, rather than pursuing a career they are passionate about.
 
