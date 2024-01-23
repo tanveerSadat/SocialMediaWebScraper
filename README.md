@@ -72,4 +72,4 @@ Throughout middle school and high school, our school boards provided us with myB
 
 
 ## Summary
-The `Social Media Web Scraper`  is a bridge connecting students to their potential futures. By offering a real-world glimpse into various professions, we aim to alleviate the anxiety and uncertainty that many students face when choosing a career path. Our project is a testament to our learning journey, and we're excited about the potential enhancements that will make this tool even more valuable to students. We believe that with the right information and insights, every student can find a career they're passionate about.
+The `Social Media Web Scraper`  is a bridge connecting students to their potential futures. By offering a real-world glimpse into various professions, we aim to alleviate the anxiety and uncertainty that many students face when choosing a career path. Our project is a testament to our learning journey, and we're excited about the potential enhancements that will make this tool even more valuable to students. We believe that with the right information and insights, every student can find and pursue a career they're passionate about.
